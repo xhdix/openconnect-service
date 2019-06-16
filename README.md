@@ -1,4 +1,4 @@
 # openconnect-service
-Install openconnect and run as service
+Install openconnect client and run as service
 
 `bash ocvpn-debian.sh server-address username password`
