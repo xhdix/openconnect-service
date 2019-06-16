@@ -15,7 +15,7 @@ USERNAME=$2
 PASSWORD=$3
 
 if [[ $PASSWORD == "" ]] ; then
-  echo "run:\n bash serverA.sh server-address username password"
+  echo "run:\n bash ocvpn-debian.sh server-address username password"
   exit
 fi
 
