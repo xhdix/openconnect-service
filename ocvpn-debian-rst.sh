@@ -47,7 +47,7 @@ systemctl daemon-reload
 systemctl enable ocvpn
 systemctl start ocvpn
 
-iptables -D INPUT -p tcp -s $IPADDRESS --tcp-flags RST RST -j DROP
+iptables -A INPUT -p tcp -s $IPADDRESS --tcp-flags RST RST -j DROP
 
 apt install iptables-persistent -y
 ###input ok 
