@@ -6,6 +6,9 @@ Install openconnect client and run as service
 
 ## Kill-switch
 ```bash
+ip6tables -P INPUT DROP
+ip6tables -P OUTPUT DROP
+
 iptables -P INPUT DROP
 iptables -P OUTPUT DROP
 iptables -A INPUT -i lo -j ACCEPT
