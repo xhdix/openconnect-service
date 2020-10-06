@@ -27,6 +27,11 @@ iptables -A OUTPUT -d 111.111.111.111/32 -p udp -m multiport --dports 53,443 -j 
 iptables -A OUTPUT -o tun+ -j ACCEPT
 
 ```
+Then use `--resolve=` to connect. Like:
+```
+echo "mypassword" | openconnect --resolve=my.example.com:111.111.111.111 -vu myusername --passwd-on-stdin https://my.example.com/
+
+```
 
 ## save iptables
 
