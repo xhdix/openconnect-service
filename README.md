@@ -29,10 +29,6 @@ iptables -A OUTPUT -o tun+ -j ACCEPT
 iptables -A OUTPUT -o vpn+ -j ACCEPT # network-manager's VPN
 
 ```
-Save iptables:
-```
-services iptables save
-```
 
 Then use `--resolve=` to connect. Like:
 ```
