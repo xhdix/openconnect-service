@@ -5,6 +5,7 @@ Install openconnect client and run as service
 
 
 ## Kill-switch
+Login as root and then:
 ```bash
 ip6tables -P INPUT DROP
 ip6tables -P OUTPUT DROP
@@ -24,9 +25,15 @@ iptables -A OUTPUT -d 10.0.0.0/8 -j DROP
 iptables -A OUTPUT -d 111.111.111.111/32 -p tcp -m multiport --dports 53,443 -j ACCEPT # == SERVER_IP
 iptables -A OUTPUT -o lo -j ACCEPT
 iptables -A OUTPUT -d 111.111.111.111/32 -p udp -m multiport --dports 53,443 -j ACCEPT # == SERVER_IP
-iptables -A OUTPUT -o tun+ -j ACCEPT
+iptables -A OUTPUT -o tun+ -j ACCEPT 
+iptables -A OUTPUT -o vpn+ -j ACCEPT # network-manager's VPN
 
 ```
+Save iptables:
+```
+services iptables save
+```
+
 Then use `--resolve=` to connect. Like:
 ```
 echo "mypassword" | openconnect --resolve=my.example.com:111.111.111.111 -vu myusername --passwd-on-stdin https://my.example.com/
